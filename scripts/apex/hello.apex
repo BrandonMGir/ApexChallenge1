@@ -10,4 +10,4 @@
 
 DataLord dl = new DataLord();
 
-System.debug('-----------------------------------------' + dl.FindAOAccount());
+dl.AssignHomes();
