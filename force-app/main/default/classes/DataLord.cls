@@ -31,4 +31,12 @@ public with sharing class DataLord {
         List<AggregateResult> mostPopular= [SELECT Account.Name, COUNT(Id) FROM Contact GROUP BY Account.Name ORDER BY COUNT(Id) DESC LIMIT 1];
         return String.valueof(mostPopular[0].get('Name'));
     }
+
+    public List<List<sObject>> FindTom(){
+        return [Find 'Tom' RETURNING Contact(Name), Lead(Name)];
+    }
+
+    public List<List<sObject>> FindAOAccount(){
+        return [Find '*a* AND *o*' RETURNING Account(Name)];
+    }
 }

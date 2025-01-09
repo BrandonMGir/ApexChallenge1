@@ -10,8 +10,4 @@
 
 DataLord dl = new DataLord();
 
-List<Account> accounts = dl.BigFive();
-
-
-
-System.debug('-----------------------------------------' + dl.MostPopularAccount());
+System.debug('-----------------------------------------' + dl.FindAOAccount());
