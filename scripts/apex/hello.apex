@@ -8,6 +8,10 @@
 //Calculator calc = new Calculator();
 //System.debug('------------------------------ ' + calc.Mod(7, 3));
 
-DataLord dl = new DataLord();
+//DataLord dl = new DataLord();
 
-dl.AssignHomes();
+//dl.AssignHomes();
+
+Car car = new Car();
+car.Turn(1441);
+//System.debug('\n------------------------------\n' + car.toString() + '------------------------------');
