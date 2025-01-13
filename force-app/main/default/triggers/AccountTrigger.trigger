@@ -25,7 +25,7 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
             when BEFORE_DELETE {
                 List<AggregateResult> accountIdsWithContacts = [SELECT Account.Id, COUNT(AccountId) FROM Contact WHERE AccountId != NULL GROUP BY Account.Id];
 
-                for(Account acc : Trigger.new){
+                for(Account acc : Trigger.old){
                     for(AggregateResult ar : accountIdsWithContacts){
                         if(acc.Id == ar.get('Id')){
                             acc.adderror('Account has a Contact and cannot be deleted');
