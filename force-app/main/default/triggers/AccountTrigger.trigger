@@ -7,6 +7,7 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
                 
             }
             when AFTER_INSERT {
+                /*
                 for(Account acc : Trigger.new){
                     Contact contact = new Contact(
                         FirstName = 'John',
@@ -16,6 +17,7 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
 
                     insert contact;
                 }
+                    */
                 
             }
             when AFTER_UPDATE {
@@ -23,6 +25,7 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
                 
             }
             when BEFORE_DELETE {
+                /*
                 List<AggregateResult> accountIdsWithContacts = [SELECT Account.Id, COUNT(AccountId) FROM Contact WHERE AccountId != NULL GROUP BY Account.Id];
 
                 for(Account acc : Trigger.old){
@@ -32,7 +35,7 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
                         }
                     }
                 }
-
+                */
             }
             when AFTER_DELETE {
                 

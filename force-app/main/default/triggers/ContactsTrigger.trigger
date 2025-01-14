@@ -1,20 +1,24 @@
 trigger ContactsTrigger on Contact (before insert, before update, after insert, after update, before delete, after delete, after undelete) {
+    ContactTriggerHelper helper = new ContactTriggerHelper();
     switch on Trigger.operationType {
             when BEFORE_INSERT {
-                
+                helper.PreventContactInsertionOnEmailDomainMismatch(Trigger.new);
             } 
             when BEFORE_UPDATE {
-                
+                helper.PreventContactInsertionOnEmailDomainMismatch(Trigger.new);
             }
             when AFTER_INSERT {
+                /*
                 for(Contact contact : Trigger.new){
                     if(contact.Email == ''){
                         contact.Email = 'defaultEmail@gmail.com';
                         update contact;
                     }
                 }
+                    */
             }
             when AFTER_UPDATE {
+                /*
                 //get accounts related to contact
                 List<Account> accounts;
                 String query = 'SELECT Id FROM Account WHERE Id IN (';
@@ -37,6 +41,7 @@ trigger ContactsTrigger on Contact (before insert, before update, after insert, 
 
                 //update account
                 update accounts;
+                */
             }
             when BEFORE_DELETE {
 
